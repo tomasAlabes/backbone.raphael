@@ -7,7 +7,6 @@ Backbone and RaphaelJS handle event bindings.
 ## Quickstart guide
 * Add backbone.raphael.js after Backbone and all it dependencies
 
-``
     <script type="text/javascript" src="raphael.js"></script>
 
     <script type="text/javascript" src="jquery-2.0.1.js"></script>
@@ -19,11 +18,9 @@ Backbone and RaphaelJS handle event bindings.
 
 
     <script type="text/javascript" src="yourApp.js"></script>
-``
 
 * Use it in your app
 
-``
     var paper = Raphael(0, 0, 320, 640, "container");
     var circle = paper.circle(200, 200, 100).attr({fill: "red"});
 
@@ -43,7 +40,6 @@ Backbone and RaphaelJS handle event bindings.
     var view = new CircleView({
         el: circle
     });
-``
 
 Thats it!
 
