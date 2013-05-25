@@ -1061,9 +1061,9 @@
         var match = key.match(delegateEventSplitter);
         var eventName = match[1], selector = match[2];
         method = _.bind(method, this);
-        eventName += '.delegateEvents' + this.cid;
+        //eventName += '.delegateEvents' + this.cid;
         if (selector === '') {
-          this.$el.on(eventName, method);
+          this.$el[0][eventName](method);
         } else {
           this.$el.on(eventName, selector, method);
         }
