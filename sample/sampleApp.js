@@ -1,7 +1,7 @@
 $(document).ready(function () {
     'use strict';
 
-    var paper = Raphael(0, 0, 600, 600, "container");
+    var paper = Raphael(0, 0, 320, 640, "container");
     var circle = paper.circle(200, 200, 100).attr({fill: "red"});
 
     //var cModel = Backbone.Model.extend();
