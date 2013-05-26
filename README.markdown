@@ -25,24 +25,51 @@ Backbone and RaphaelJS handle event bindings.
 * Use it in your app
 
 ```js
-var paper = Raphael(0, 0, 320, 640, "container");
-var circle = paper.circle(200, 200, 100).attr({fill: "red"});
+var paper = Raphael("container", 300, 640);
+
+var CircleModel = Backbone.Model.extend();
 
 var CircleView = Backbone.RaphaelView.extend({
 
-    events: {
-        // Any raphael event
-        "click": "sayHello"
+    initialize: function(){
+        var model = this.model;
+        this.listenTo(model, "change", this.render);
+
+        var circle = paper.circle(model.get("x"), model.get("y"), model.get("radio")).attr({fill: model.get("color")});
+
+        this.setElement(circle);
     },
 
-    sayHello: function(evt){
-        alert("Hello!!!");
+    events: {
+        "click": "sayType"
+    },
+
+    sayType: function(evt){
+        console.log(evt.type);
+    },
+
+    render: function(){
+        var circle = this.el;
+        var model = this.model;
+        circle.attr({
+            cx: model.get("x"),
+            cy: model.get("y"),
+            radio: model.get("radio"),
+            color: model.get("color")
+        });
     }
 
 });
 
+var model = new CircleModel({
+    x: 100,
+    y: 150,
+    radio: 50,
+    color: "blue"
+});
+
 var view = new CircleView({
-    el: circle
+    model: model
 });
 ```
 
