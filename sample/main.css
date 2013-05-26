@@ -1,0 +1,14 @@
+#wrap {
+    width:1000px;
+    margin:0 auto;
+}
+
+#left_col {
+    float:left;
+    width:600px;
+}
+
+#right_col {
+    float:right;
+    width:400px;
+}
