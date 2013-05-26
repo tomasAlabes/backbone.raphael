@@ -6,7 +6,7 @@ $(document).ready(function () {
 
     //var cModel = Backbone.Model.extend();
 
-    var CircleView = Backbone.raphaelView.extend({
+    var CircleView = Backbone.RaphaelView.extend({
 
         events: {
             "click": "sayEventType",

@@ -28,7 +28,7 @@ Backbone and RaphaelJS handle event bindings.
 var paper = Raphael(0, 0, 320, 640, "container");
 var circle = paper.circle(200, 200, 100).attr({fill: "red"});
 
-var CircleView = Backbone.raphaelView.extend({
+var CircleView = Backbone.RaphaelView.extend({
 
     events: {
         // Any raphael event

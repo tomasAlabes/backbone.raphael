@@ -1,4 +1,4 @@
-Backbone.raphaelView = Backbone.View.extend({
+Backbone.RaphaelView = Backbone.View.extend({
 
     delegateEvents: function(events) {
         if (!(events || (events = _.result(this, 'events')))) return this;
