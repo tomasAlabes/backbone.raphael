@@ -46,7 +46,7 @@ var view = new CircleView({
 });
 ```
 
-For a more complex example see the sample app in this repo.
+**For a more complex example see the sample app in this repo.**
 
 Thats it!
 
