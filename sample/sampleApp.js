@@ -31,7 +31,8 @@ $(document).ready(function () {
         },
 
         events: {
-            "click": "moveX"
+            "click": "moveX",
+            "blah": "moveX"
         },
 
         moveX: function(evt){
@@ -73,5 +74,7 @@ $(document).ready(function () {
     var view = new CircleView({
         model: model
     });
+
+    view.trigger("blah");
 
 });

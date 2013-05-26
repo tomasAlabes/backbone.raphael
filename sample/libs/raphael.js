@@ -3421,6 +3421,23 @@
     }
 
     /*\
+     * Element.unbindAll
+     [ method ]
+     **
+     * Unbind all events from this element
+     **
+     \*/
+    elproto.unbindAll = function(){
+        var eventsLength = this.events ? this.events.length : 0;
+        for (var i = 0; i < eventsLength; i++) {
+            var evt = this.events[i];
+            evt.unbind();
+        }
+        this.events = [];
+        return this;
+    };
+
+    /*\
      * Element.data
      [ method ]
      **
@@ -5336,6 +5353,20 @@
             }
         });
         return isPointInside;
+    };
+
+    /*\
+     * Set.unbindAll
+     [ method ]
+     **
+     * Unbind all events from this set
+     **
+     \*/
+    setproto.unbindAll = function(){
+        this.forEach(function(el){
+            el.unbindAll();
+        });
+        return this;
     };
 
     /*\

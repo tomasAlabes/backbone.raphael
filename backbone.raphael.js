@@ -1,18 +1,38 @@
 Backbone.RaphaelView = Backbone.View.extend({
 
+    setElement: function(element, delegate) {
+        if (this.el) this.undelegateEvents();
+        // el and $el will be the same, $el would have no special meaning...
+        this.el = this.$el = element;
+        if (delegate !== false) this.delegateEvents();
+        return this;
+    },
+
     delegateEvents: function(events) {
         if (!(events || (events = _.result(this, 'events')))) return this;
         this.undelegateEvents();
-        for (var key in events) {
-            var method = events[key];
-            if (!_.isFunction(method)) method = this[events[key]];
+        for (var eventName in events) {
+            var method = events[eventName];
+            if (!_.isFunction(method)) method = this[events[eventName]];
             if (!method) continue;
 
-            var match = key.match(/^(\S+)\s*(.*)$/);
-            var eventName = match[1];
             method = _.bind(method, this);
-            this.$el[0][eventName](method);
+            //If it is one of the svg/vml events
+            if(this.el[eventName]){
+                this.el[eventName](method);
+            }
+            // Custom events for RaphaelView object
+            else{
+                this.on(eventName, method);
+            }
+
         }
+        return this;
+    },
+
+    // Clears all callbacks previously bound to the view with `delegateEvents`.
+    undelegateEvents: function() {
+        if(this.el.type) this.el.unbindAll();
         return this;
     }
 
