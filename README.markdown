@@ -7,39 +7,44 @@ Backbone and RaphaelJS handle event bindings.
 ## Quickstart guide
 * Add backbone.raphael.js after Backbone and all it dependencies
 
-    <script type="text/javascript" src="raphael.js"></script>
+```html
+<script type="text/javascript" src="raphael.js"></script>
 
-    <script type="text/javascript" src="jquery-2.0.1.js"></script>
-    <script type="text/javascript" src="underscore.js"></script>
-    <script type="text/javascript" src="backbone.js"></script>
-
-
-    <script type="text/javascript" src="backbone.raphael.js"></script>
+<script type="text/javascript" src="jquery-2.0.1.js"></script>
+<script type="text/javascript" src="underscore.js"></script>
+<script type="text/javascript" src="backbone.js"></script>
 
 
-    <script type="text/javascript" src="yourApp.js"></script>
+<script type="text/javascript" src="backbone.raphael.js"></script>
+
+
+<script type="text/javascript" src="yourApp.js"></script>
+```
+
 
 * Use it in your app
 
-    var paper = Raphael(0, 0, 320, 640, "container");
-    var circle = paper.circle(200, 200, 100).attr({fill: "red"});
+```js
+var paper = Raphael(0, 0, 320, 640, "container");
+var circle = paper.circle(200, 200, 100).attr({fill: "red"});
 
-    var CircleView = Backbone.raphaelView.extend({
+var CircleView = Backbone.raphaelView.extend({
 
-        events: {
-            // Any raphael event
-            "click": "sayHello"
-        },
+    events: {
+        // Any raphael event
+        "click": "sayHello"
+    },
 
-        sayHello: function(evt){
-            alert("Hello!!!");
-        }
+    sayHello: function(evt){
+        alert("Hello!!!");
+    }
 
-    });
+});
 
-    var view = new CircleView({
-        el: circle
-    });
+var view = new CircleView({
+    el: circle
+});
+```
 
 Thats it!
 
