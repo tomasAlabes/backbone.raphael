@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
     });
 
-    var CircleView = Backbone.RaphaelView.extend({
+    var raphaelView = Backbone.RaphaelView.extend({
 
         initialize: function(){
             var model = this.model;
@@ -63,6 +63,12 @@ $(document).ready(function () {
 
     });
 
+    var htmlView = Backbone.View.extend({
+
+
+
+    });
+
     var model = new CircleModel({
         x: 100,
         y: 150,
@@ -71,10 +77,9 @@ $(document).ready(function () {
         color: "blue"
     });
 
-    var view = new CircleView({
+    var view = new raphaelView({
         model: model
     });
 
-    view.trigger("blah");
 
 });

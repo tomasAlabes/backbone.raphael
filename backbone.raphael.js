@@ -1,16 +1,16 @@
 Backbone.RaphaelView = Backbone.View.extend({
 
-    setElement: function(element, delegate) {
-        if (this.el) this.undelegateEvents();
+    setElement: function(element, delegate, undelegateEvents) {
+        if (this.el && undelegateEvents) this.undelegateEvents();
         // el and $el will be the same, $el would have no special meaning...
         this.el = this.$el = element;
         if (delegate !== false) this.delegateEvents();
         return this;
     },
 
-    delegateEvents: function(events) {
+    delegateEvents: function(events, undelegateEvents) {
         if (!(events || (events = _.result(this, 'events')))) return this;
-        this.undelegateEvents();
+        if(undelegateEvents) this.undelegateEvents();
         for (var eventName in events) {
             var method = events[eventName];
             if (!_.isFunction(method)) method = this[events[eventName]];

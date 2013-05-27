@@ -1,3 +1,7 @@
+body{
+    background-color: grey;
+}
+
 #wrap {
     width:1000px;
     margin:0 auto;
