@@ -60,8 +60,8 @@ var CircleView = Backbone.RaphaelView.extend({
         circle.attr({
             cx: model.get("x"),
             cy: model.get("y"),
-            radio: model.get("radio"),
-            color: model.get("color")
+            r: model.get("radio"),
+            fill: model.get("color")
         });
     }
 
