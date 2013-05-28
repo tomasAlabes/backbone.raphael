@@ -12,7 +12,7 @@
 
     <script type="text/javascript" src="../backbone.raphael.js"></script>
 
-    <script type="text/javascript" src="compoundViewsSample.js"></script>
+    <script type="text/javascript" src="mixedViewsSample.js"></script>
 
 
 </head>
@@ -28,6 +28,14 @@
     </div>
 </div>
 
+
+<script type="text/template" id="circleHtmlView">
+    <label for="x"> cx: <input id="x" class="rInput" value="<%- x %>" type="number"></label>
+    <label for="y"> cy: <input id="y" class="rInput" value="<%- y %>" type="number"></label>
+    <label for="radio"> radio: <input id="radio" class="rInput" value="<%- radio %>" type="number"></label>
+    <label for="label"> label: <input id="label" class="rInput" value="<%- label %>" type="text"></label>
+    <label for="color"> color: <input id="color" class="rInput" value="<%- color %>" type="color"></label>
+</script>
 
 </body>
 </html>

@@ -1,7 +1,7 @@
 $(document).ready(function () {
     'use strict';
 
-    var paper = Raphael("container", 300, 640);
+    var paper = Raphael("container", 200, 400);
 
     var CircleModel = Backbone.Model.extend({
         defaults: {
@@ -59,7 +59,7 @@ $(document).ready(function () {
 
         render: function(model){
             var label = this.el;
-            var figureBbox = this.figureView.getBBox();
+            var figureBbox = this.circleFigure.getBBox();
 
             label.attr({
                 x: model.get("x"),
@@ -104,6 +104,34 @@ $(document).ready(function () {
 
     });
 
+    var CircleHtmlView = Backbone.View.extend({
+
+        template: _.template($('#circleHtmlView').html()),
+        el: $('#right_col'),
+
+        initialize: function(){
+            this.listenTo(model, "change", this.render);
+            this.render();
+        },
+
+        events:{
+            "change .rInput": "update"
+        },
+
+        render: function(){
+            this.$el.html(this.template(this.model.attributes));
+            return this;
+        },
+
+        update: function(evt){
+            var source = $(evt.target),
+                newValue = source.val(),
+                id = source.attr("id");
+            this.model.set(id, newValue);
+        }
+
+    });
+
     var model = new CircleModel({
         x: 100,
         y: 150,
@@ -116,6 +144,8 @@ $(document).ready(function () {
         model: model
     });
 
-
+    var htmlView = new CircleHtmlView({
+        model: model
+    });
 
 });
