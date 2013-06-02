@@ -1,10 +1,16 @@
 {
-    "name": "backbone.raphael",
-    "version": "1.0.0",
-    "main": ["backbone.raphael.js"],
-    "ignore": ["**/*.txt"],
-    "dependencies": {
-        "jquery": "latest",
-        "raphael": "latest"
-    }
+  "name": "backbone.raphael",
+  "version": "1.0.0",
+  "main": [
+    "backbone.raphael.js"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "raphael": "latest"
+  }
 }
