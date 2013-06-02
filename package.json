@@ -1,0 +1,16 @@
+{
+    "name": "backbone.raphael",
+    "version": "1.0",
+    "description": "Backbone extension for Raphael",
+    "main": "backbone.raphael.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/tomasAlabes/backbone.raphael.git"
+    },
+    "author": "Tomas Alabes",
+    "license": "MIT",
+    "readmeFilename": "README.markdown"
+}
