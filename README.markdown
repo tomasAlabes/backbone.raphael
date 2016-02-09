@@ -83,7 +83,5 @@ var view = new CircleView({
 
 Thats it!
 
-Anyway, is work in progress.
-
 ## Copyright and license
 Licensed under the **MIT** license.
